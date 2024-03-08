@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"uts/controllers"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
@@ -15,11 +16,10 @@ func main() {
 
 	router := mux.NewRouter()
 
-	// router.HandleFunc("/users", controllers.GetAllUsers).Methods("GET")
-	// router.HandleFunc("/users", controllers.InsertUser).Methods("POST")
-	// router.HandleFunc("/users/{id}", controllers.UpdateUser).Methods("PUT")
-	// router.HandleFunc("/users/{id}", controllers.DeleteUser).Methods("DELETE")
-	// router.HandleFunc("/users/login", controllers.Login).Methods("POST")
+	router.HandleFunc("/rooms", controllers.GetAllRooms).Methods("GET")
+	router.HandleFunc("/rooms/detail/{id}", controllers.GetDetailRoom).Methods("GET")
+	router.HandleFunc("/participants", controllers.InsertRoom).Methods("POST")
+	router.HandleFunc("/participants/{id}", controllers.LeaveRoom).Methods("DELETE")
 
 	// CORS Handling
 	corsHandler := cors.New(cors.Options{
