@@ -18,4 +18,4 @@ jobs:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#9B7DD4"
-          message: "A new pull request on {{ EVENT_PAYLOAD.repository.full_name }} has created."
+          message: "A new pull request on ${{ github.repository }} has been created."
