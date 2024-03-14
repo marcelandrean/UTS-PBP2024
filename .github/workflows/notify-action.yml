@@ -1,0 +1,36 @@
+name: Message Notification
+
+on:
+  push:
+  pull_request:
+    types: [opened, edited, synchronize]
+  issues:
+  fork:
+  watch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preparation
+        uses: actions/checkout@v3
+      - name: Setup Go
+        uses: actions/setup-go@v4
+
+      - name: Send Discord Message
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          color: "#9B7DD4"
+          message: |
+            "Pull request is ${{ github.event.action }}.
+            #${{ github.event.number }}: ${{ github.event.pull_request.title }}
+            ${{ github.event.pull_request.html_url }}"
+
+      - name: Send WhatsApp Message
+        uses: kaviadigdarshan/whatsapp-actions@main
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          TO_WHATSAPP_NUMBER: ${{ secrets.TO_WHATSAPP_NUMBER }}

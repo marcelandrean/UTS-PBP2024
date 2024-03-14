@@ -2,7 +2,7 @@ name: Go Code Linter
 
 on:
   pull_request:
-    types: [opened, closed, edited, synchronize]
+    types: [opened, edited, synchronize]
 
 jobs:
   build:
