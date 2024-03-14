@@ -1,76 +1,76 @@
 package models
 
-// Account...
+// Account adalah ...
 type Account struct {
 	ID       int    `json:"id"`
 	Username string `json:"username"`
 }
 
-// Game...
+// Game adalah ...
 type Game struct {
 	ID        int    `json:"id"`
 	Name      string `json:"name"`
 	MaxPlayer int    `json:"max_player"`
 }
 
-// Room...
+// Room adalah ...
 type Room struct {
-	ID        int    `json:"id"`
-	Room_Name string `json:"room_name"`
+	ID       int    `json:"id"`
+	RoomName string `json:"room_name"`
 }
 
-// Participant...
+// Participant adalah ...
 type Participant struct {
 	ID        int `json:"id"`
 	IDRoom    int `json:"id_room"`
 	IDAccount int `json:"id_account"`
 }
 
-// RoomsResponse...
+// RoomsResponse adalah ...
 type RoomsResponse struct {
 	Status  int      `json:"status"`
 	Message string   `json:"message"`
 	Data    RoomWrap `json:"data"`
 }
 
-// RoomWrap...
+// RoomWrap adalah ...
 type RoomWrap struct {
 	Rooms []Room `json:"rooms"`
 }
 
-// DetailRoomResponse...
+// DetailRoomResponse adalah ...
 type DetailRoomResponse struct {
 	Room DetailRoom `json:"room"`
 }
 
-// DetailRoom...
+// DetailRoom adalah ...
 type DetailRoom struct {
 	ID           int                 `json:"id"`
 	RoomName     string              `json:"room_name"`
 	Participants []ParticipantDetail `json:"participants"`
 }
 
-// ParticipantDetail...
+// ParticipantDetail adalah ...
 type ParticipantDetail struct {
 	ID        int    `json:"id"`
 	IDAccount int    `json:"id_account"`
 	Username  string `json:"username"`
 }
 
-// DetailRoomsResponse...
+// DetailRoomsResponse adalah ...
 type DetailRoomsResponse struct {
 	Status  int                `json:"status"`
 	Message string             `json:"message"`
 	Data    DetailRoomResponse `json:"data"`
 }
 
-// SuccessResponse...
+// SuccessResponse adalah ...
 type SuccessResponse struct {
 	Status  int    `json:"status"`
 	Message string `json:"message"`
 }
 
-// ErrorResponse...
+// ErrorResponse adalah ...
 type ErrorResponse struct {
 	Status  int    `json:"status"`
 	Message string `json:"message"`

@@ -11,7 +11,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// GetAllRooms...
+// GetAllRooms untuk ...
 func GetAllRooms(w http.ResponseWriter, r *http.Request) {
 	db, errDb := connectGorm()
 	if errDb != nil {
@@ -51,7 +51,7 @@ func GetAllRooms(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-// GetDetailRoom...
+// GetDetailRoom untuk ...
 func GetDetailRoom(w http.ResponseWriter, r *http.Request) {
 	db := connect()
 	defer db.Close()

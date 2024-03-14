@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EnterRoom...
+// EnterRoom untuk ...
 func EnterRoom(w http.ResponseWriter, r *http.Request) {
 	db := connect()
 	defer db.Close()
@@ -88,7 +88,7 @@ func EnterRoom(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// LeaveRoom...
+// LeaveRoom untuk ...
 func LeaveRoom(w http.ResponseWriter, r *http.Request) {
 	db := connect()
 	defer db.Close()
