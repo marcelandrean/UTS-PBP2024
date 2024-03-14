@@ -18,7 +18,7 @@ func main() {
 
 	router.HandleFunc("/rooms", controllers.GetAllRooms).Methods("GET")
 	router.HandleFunc("/rooms/detail/{id}", controllers.GetDetailRoom).Methods("GET")
-	router.HandleFunc("/participants", controllers.InsertRoom).Methods("POST")
+	router.HandleFunc("/participants", controllers.EnterRoom).Methods("POST")
 	router.HandleFunc("/participants/{id}", controllers.LeaveRoom).Methods("DELETE")
 
 	// CORS Handling
