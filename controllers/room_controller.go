@@ -11,6 +11,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// GetAllRooms untuk ...
 func GetAllRooms(w http.ResponseWriter, r *http.Request) {
 	db, errDb := connectGorm()
 	if errDb != nil {
@@ -50,6 +51,7 @@ func GetAllRooms(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
+// GetDetailRoom untuk ...
 func GetDetailRoom(w http.ResponseWriter, r *http.Request) {
 	db := connect()
 	defer db.Close()
@@ -75,7 +77,7 @@ func GetDetailRoom(w http.ResponseWriter, r *http.Request) {
 	for detailRoomRow.Next() {
 		var participant m.ParticipantDetail
 		if err := detailRoomRow.Scan(
-			&detailRoom.ID, &detailRoom.RoomName, &participant.ID, &participant.ID_Account, &participant.Username); err != nil {
+			&detailRoom.ID, &detailRoom.RoomName, &participant.ID, &participant.IDAccount, &participant.Username); err != nil {
 			log.Println(err)
 			sendErrorResponse(w, "Failed to fetch detail room")
 			return
