@@ -13,13 +13,7 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: '{
-            "embeds": [{
-              "title":"Notification",
-              "description": "A new pull request has been created.",
-              "color": "#9B7DD4"
-              }]
-            }'
+          DISCORD_EMBEDS: '{"embeds": [{"title":"Notification","description": "A new pull request has been created.","color": "#9B7DD4"}]}'
         uses: Ilshidur/action-discord@master
         with:
           args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed."
