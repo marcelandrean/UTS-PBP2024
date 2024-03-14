@@ -12,9 +12,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Go
         uses: actions/setup-go@v4
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
+      - name: Send Message
+        uses: appleboy/discord-action@master
         with:
-          args: "A new pull request on {{ EVENT_PAYLOAD.repository.full_name }} has created."
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          color: "#9B7DD4"
+          message: "A new pull request on ${{ github.repository }} has been created."
