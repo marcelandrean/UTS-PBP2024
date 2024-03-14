@@ -1,10 +1,6 @@
-name: Actions for Discord
+name: Discord Notification
 
-on:
-  pull_request:
-    branches:
-      - main
-    types: [opened, edited, synchronize]
+on: [push, pull_request, issues, fork, watch]
 
 jobs:
   build:
@@ -19,4 +15,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+          args: "A new pull request on {{ EVENT_PAYLOAD.repository.full_name }} has created."
