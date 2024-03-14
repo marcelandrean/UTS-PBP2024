@@ -24,10 +24,10 @@ func GetAllRooms(w http.ResponseWriter, r *http.Request) {
 	query := db.Model(&m.Room{})
 
 	// Read from Query Param
-	roomName := r.URL.Query().Get("room_name")
+	gameID := r.URL.Query().Get("id_game")
 
-	if roomName != "" {
-		query = query.Where("room_name = ?", roomName)
+	if gameID != "" {
+		query = query.Where("id_game = ?", gameID)
 	}
 
 	err := query.Find(&rooms).Error
